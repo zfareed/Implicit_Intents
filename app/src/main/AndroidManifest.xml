@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.implicitintents">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -13,14 +14,17 @@
         android:theme="@style/Theme.ImplicitIntents">
         <activity android:name=".Open_url">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".MainActivity">
-
-
+          <intent-filter tools:ignore="AppLinkUrlError">
+              <action android:name="android.intent.action.VIEW"/>
+              <category android:name="android.intent.category.DEFAULT"/>
+              <data android:scheme="https"/>
+          </intent-filter>
         </activity>
     </application>
 

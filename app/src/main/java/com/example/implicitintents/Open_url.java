@@ -29,7 +29,11 @@ public class Open_url extends AppCompatActivity {
 
                 String URL = editText.getText().toString();
                 Intent intent = new Intent( Intent.ACTION_VIEW, Uri.parse(URL));
-                startActivity(intent);
+                Intent chooser = Intent.createChooser(intent,"Choose from Appication");
+
+                if (intent.resolveActivity(getPackageManager())!=null){
+                    startActivity(chooser);
+                }
             }
         });
     }
